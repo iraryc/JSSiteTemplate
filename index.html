@@ -59,6 +59,56 @@
         </div>
     </main>
 
+        <h1>URL String Parameters Demo</h1>
+        <form id="demoForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+    
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age"><br><br>
+    
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country"><br><br>
+    
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+
+
+      
+
+
+
+        <script>
+            function submitForm() {
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+                const country = document.getElementById('country').value;
+    
+                const queryString = `?name=${encodeURIComponent(name)}&age=${encodeURIComponent(age)}&country=${encodeURIComponent(country)}`;
+                const newUrl = "http://127.0.0.1:8000/app.html" + queryString;
+                
+                // Redirect to the new URL with query parameters
+                window.location.href = newUrl;
+            }
+
+            function grabUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            console.log(params);
+            const name = params.get('name');
+            const age = params.get('age');
+            const country = params.get('country');
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <p><strong>Name:</strong> ${name ? name : 'N/A'}</p>
+                <p><strong>Age:</strong> ${age ? age : 'N/A'}</p>
+                <p><strong>Country:</strong> ${country ? country : 'N/A'}</p>
+            `;
+        }
+        </script>
+    </body>
+    </html>
+    
 
 
     <!-- ==== Navigation Section ==== -->
