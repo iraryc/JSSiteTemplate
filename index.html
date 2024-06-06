@@ -91,7 +91,7 @@
             const mountain = document.getElementById('mountain').value;
 
             const queryString = `?name=${encodeURIComponent(name)}&age=${encodeURIComponent(age)}&country=${encodeURIComponent(country)}&mountain=${encodeURIComponent(mountain)}`;
-            const newUrl = "http://127.0.0.1:8000/app.html" + queryString;
+            const newUrl = "app.html" + queryString;
 
             // Redirect to the new URL with query parameters
             window.location.href = newUrl;
